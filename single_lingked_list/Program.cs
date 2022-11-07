@@ -126,6 +126,17 @@ namespace single_lingked_list
                             {
                                 obj.addNote();
                             }
+                            break;
+
+                        case '2':
+                            {
+                                if(obj.listEmpty())
+                                {
+                                    Console.WriteLine("\nList is empty");
+                                    break;
+                                }
+                                Console.WriteLine()
+                            }
                     }
                 }
             }
