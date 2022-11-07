@@ -153,6 +153,22 @@ namespace single_lingked_list
                             }
                             break;
                         case '4':
+                            {
+                                if(obj.listEmpty() == true)
+                                {
+                                    Console.WriteLine("\nList is empty");
+                                    break;
+                                }
+                                Node previous, current = null;
+                                Console.Write("\nEnter the roll number of the" + "student whole record is to be searched : ");
+                                int num = Convert.ToInt32(Console.ReadLine());
+                                if (obj.Search(num, ref previous, ref current) == false)
+                                    Console.WriteLine("\nRecord not found");
+                                else
+                                {
+                                    Console.WriteLine()
+                                }
+                            }
                     }
                 }
             }
