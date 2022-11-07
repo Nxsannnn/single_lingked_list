@@ -100,7 +100,7 @@ namespace single_lingked_list
             Node currentNode;
             for (currentNode = START; currentNode != null;
                  currentNode = currentNode.next)
-
+                 Console.Write(current)
         }
     }
     class Program
