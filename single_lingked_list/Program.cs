@@ -147,6 +147,12 @@ namespace single_lingked_list
                             }
                             break;
                         case '3':
+                            {
+                                obj.Traverse();
+
+                            }
+                            break;
+                        case '4':
                     }
                 }
             }
