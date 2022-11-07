@@ -165,13 +165,28 @@ namespace single_lingked_list
                                 if (obj.Search(num, ref previous, ref current) == false)
                                     Console.WriteLine("\nRecord not found");
                                 else
-                                {
-                                    Console.WriteLine();
+                                { 
+                                    Console.WriteLine("\nRecord Not Found");
+                                    Console.WriteLine("\nRoll Number: " + current.rollNumber);
+                                    Console.WriteLine("\nName: " + current.name);
                                 }
+                            }
+                            break;
+
+                        case '5':
+                            return;
+                        default:
+                            {
+                                Console.WriteLine("Invalid ption");
+                                break;
                             }
                     }
                 }
+                catch(Exception)
+                {
+                    Console.WriteLine("\nCheck for the value entered");
+                }
             }
-        }
-    }
+        }
+    }
 }
