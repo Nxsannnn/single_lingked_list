@@ -122,7 +122,10 @@ namespace single_lingked_list
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch(ch)
                     {
-                        ca
+                        case '1':
+                            {
+                                obj.addNote();
+                            }
                     }
                 }
             }
