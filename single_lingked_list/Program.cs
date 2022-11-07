@@ -120,7 +120,10 @@ namespace single_lingked_list
                     Console.WriteLine("5. Exit");
                     Console.WriteLine("\nEnter your choice (1-5) : ");
                     char ch = Convert.ToChar(Console.ReadLine());
-
+                    switch(ch)
+                    {
+                        ca
+                    }
                 }
             }
         }
