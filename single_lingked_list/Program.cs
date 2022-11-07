@@ -125,8 +125,9 @@ namespace single_lingked_list
                         case '1':
                             {
                                 obj.addNote();
+                                break;
                             }
-                            break;
+                            
 
                         case '2':
                             {
@@ -135,8 +136,17 @@ namespace single_lingked_list
                                     Console.WriteLine("\nList is empty");
                                     break;
                                 }
-                                Console.WriteLine()
+                                Console.WriteLine("Enter the roll number of" + "the student whose record is to be deleted: ")
+                                    int rollNo = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine();
+                                if (obj.Equals(rollNo) == false)
+                                    Console.WriteLine("\n Record not found.");
+                                else
+                                    Console.WriteLine("Record with roll number " 
+                                        ++ rollNo + "Deleted");
                             }
+                            break;
+                        case '3':
                     }
                 }
             }
