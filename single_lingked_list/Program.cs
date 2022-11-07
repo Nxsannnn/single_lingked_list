@@ -107,6 +107,7 @@ namespace single_lingked_list
     {
         static void Main(string[] args)
         {
+            List obj = new List();
         }
     }
 }
