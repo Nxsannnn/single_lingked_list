@@ -69,7 +69,7 @@ namespace single_lingked_list
     {
         Node previous, current;
         previous = current = null;
-        if(Search(rollNO,ref previous ref current)== false)
+        if(Search(rollNO,ref previous, ref current)== false)
             return false;
         previous.next = current.next;
         if (current == START)
