@@ -108,6 +108,19 @@ namespace single_lingked_list
         static void Main(string[] args)
         {
             List obj = new List();
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("\nMENU");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                }
+            }
         }
     }
 }
