@@ -113,12 +113,13 @@ namespace single_lingked_list
                 try
                 {
                     Console.WriteLine("\nMENU");
-                    Console.WriteLine("");
-                    Console.WriteLine("");
-                    Console.WriteLine("");
-                    Console.WriteLine("");
-                    Console.WriteLine("");
-                    Console.WriteLine("");
+                    Console.WriteLine("1.  Add a record to the list");
+                    Console.WriteLine("2. Delete a record from the list");
+                    Console.WriteLine("3. view all the records in the list");
+                    Console.WriteLine("4. search for a record in the list");
+                    Console.WriteLine("5. Exit");
+                    Console.WriteLine("\nEnter your choice (1-5) : ");
+                    char ch
                 }
             }
         }
