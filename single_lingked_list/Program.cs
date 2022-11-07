@@ -166,7 +166,7 @@ namespace single_lingked_list
                                     Console.WriteLine("\nRecord not found");
                                 else
                                 {
-                                    Console.WriteLine()
+                                    Console.WriteLine();
                                 }
                             }
                     }
