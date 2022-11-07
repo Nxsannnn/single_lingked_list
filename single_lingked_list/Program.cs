@@ -1,108 +1,96 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Xml.Linq;
+using System;
+using System.Collections;
 
-namespace single_lingked_list
+public bool Search(int rollNo, ref Node previous, ref Node current)
 {
-    class Node
+    previous = START;
+    current = START;
+    while ((current != null) && (rollNo != current.rollNumber))
     {
-        public int rollNumber;
-        public string name;
-        public Node next;
+        previous = current;
+        current = current.next;
     }
-
-    class List
-    {
-        Node START;
-        public List()
-        {
-            START = null;
-        }
-        public void addNote()
-        {
-            int rollNo;
-            string nm;
-            Console.Write("\nEnter the roll number of the student: ");
-            rollNo = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\nEnter the roll number of the student: ");
-            nm = Console.ReadLine();
-            Node newnode = new Node();
-            newnode.rollNumber = rollNo;
-            newnode.name = nm;
-            if (START == null || (rollNo <= START.rollNumber))
-            {
-                if ((START != null) && (rollNo == START.rollNumber))
-                {
-                    Console.WriteLine();
-                    return;
-                }
-                newnode.next = START;
-                START = newNode();
-                return;
-            }
-            Node previous, current;
-            previous = START;
-            current = START;
-
-            while ((current != null) && (rollNo >= current.rollNumber))
-            {
-                if (rollNo == current.rollNumber)
-                {
-                    Console.WriteLine();
-                    return;
-                }
-                newnode.next = current;
-                previous = newnode;
-            }
-            newnode.next = current;
-            previous = newnode;
-
-        }
-
-
-    }
-    public bool delNode(int rollNO)
-    {
-        Node previous, current;
-        previous = current = null;
-        if(Search(rollNO,ref previous, ref current)== false)
-            return false;
-        previous.next = current.next;
-        if (current == START)
-            START = START.next;
+    if (current == null)
+        return false;
+    else
         return true;
-    }
-    public bool Search(int rollNo, ref Node previous, ref Node Current)
+}
+public void Traverse()
+{
+    if (listEmpty())
+        Console.WriteLine("\nThe Records in The List are: ");
+    else
     {
-        previous = START;
-        Current = START;
-        while ((Current != null) && (rollNo != Current.rollNumber))
-        {
-            previous = Current;
-            Current = Current.next;
-        }
-        if (Current == null)
-            return false;
-        else
-            return true;
+        Console.WriteLine("\nThe Records in The List are: ");
+        Node currentNode;
+        for (currentNode = START; currentNode != null;
+            currentNode = currentNode.next)
+            Console.Write(currentNode.rollNumber + " "
+                + currentNode.name + "\n");
+        Console.WriteLine();
     }
-    public void Traverse()
+}
+
+public bool listEmpty()
+{
+    if (START == null)
+        return true;
+    else
+        return false;
+}
+    }
+    class Program
+{
+    static void Main(string[] args)
     {
-        if (listEmpty())
-            Console.WriteLine("\nThe records in the list are: ");
-        else
+        List obj = new List();
+        while (true)
         {
-            Console.WriteLine("\nThe records in the list are:");
-            Node currentNode;
-            for (currentNode = START; currentNode != null;
-                 currentNode = currentNode.next)
-                 Console.Write(current)
+            try
+            {
+                Console.WriteLine("\nMENU");
+                Console.WriteLine("1. Add a record to the list");
+                Console.WriteLine("2. Delete a record from the list");
+                Console.WriteLine("3. View all the records in the list");
+                Console.WriteLine("4. Search for a record in the list");
+                Console.WriteLine("5. EXIT");
+                Console.Write("\nEnter your choice (1-5) : ");
+                while ((current != null) && (rollNo != current.rollNumber))
+                {
+                    previous = current;
+                    current = current.next;
+                }
+                if (current == null)
+                    return false;
+                else
+                    return true;
+            }
+        public void Traverse()
+            {
+                if (listEmpty())
+                    Console.WriteLine("\nThe Records in The List are: ");
+                else
+                {
+                    Console.WriteLine("\nThe Records in The List are: ");
+                    Node currentNode;
+                    for (currentNode = START; currentNode != null;
+                        currentNode = currentNode.next)
+                        Console.Write(currentNode.rollNumber + " "
+                            + currentNode.name + "\n");
+                    Console.WriteLine();
+                }
+            }
+
+            public bool listEmpty()
+            {
+                if (START == null)
+                    return true;
+                else
+                    return false;
+            }
         }
-    }
     class Program
     {
         static void Main(string[] args)
@@ -113,59 +101,61 @@ namespace single_lingked_list
                 try
                 {
                     Console.WriteLine("\nMENU");
-                    Console.WriteLine("1.  Add a record to the list");
+                    Console.WriteLine("1. Add a record to the list");
                     Console.WriteLine("2. Delete a record from the list");
-                    Console.WriteLine("3. view all the records in the list");
-                    Console.WriteLine("4. search for a record in the list");
-                    Console.WriteLine("5. Exit");
-                    Console.WriteLine("\nEnter your choice (1-5) : ");
+                    Console.WriteLine("3. View all the records in the list");
+                    Console.WriteLine("4. Search for a record in the list");
+                    Console.WriteLine("5. EXIT");
+                    Console.Write("\nEnter your choice (1-5) : ");
                     char ch = Convert.ToChar(Console.ReadLine());
-                    switch(ch)
+                    switch (ch)
                     {
                         case '1':
                             {
                                 obj.addNote();
-                                break;
                             }
-                            
+                            break;
 
                         case '2':
                             {
-                                if(obj.listEmpty())
+                                if (obj.listEmpty())
                                 {
                                     Console.WriteLine("\nList is empty");
                                     break;
                                 }
-                                Console.WriteLine("Enter the roll number of" + "the student whose record is to be deleted: ")
-                                    int rollNo = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Enter the roll number of" +
+                                    " The Student whose record is to be deleted: ");
+                                int rollNo = Convert.ToInt32(Console.ReadLine());
                                 Console.WriteLine();
-                                if (obj.Equals(rollNo) == false)
-                                    Console.WriteLine("\n Record not found.");
+                                if (obj.delNode(rollNo) == false)
+                                    Console.WriteLine("\nRecord Not Found.");
                                 else
-                                    Console.WriteLine("Record with roll number " 
-                                        ++ rollNo + "Deleted");
+                                    Console.WriteLine("Record with roll number" +
+
+                                        +rollNo + "Deleted");
                             }
                             break;
                         case '3':
                             {
                                 obj.Traverse();
-
                             }
                             break;
                         case '4':
                             {
-                                if(obj.listEmpty() == true)
+                                if (obj.listEmpty() == true)
                                 {
-                                    Console.WriteLine("\nList is empty");
+                                    Console.WriteLine("\nList is Empty");
                                     break;
                                 }
-                                Node previous, current = null;
-                                Console.Write("\nEnter the roll number of the" + "student whole record is to be searched : ");
+                                Node previous, current;
+                                previous = current = null;
+                                Console.Write("\nEnter the roll number of the " +
+                                    "Student whole record is to be Searched: ");
                                 int num = Convert.ToInt32(Console.ReadLine());
                                 if (obj.Search(num, ref previous, ref current) == false)
-                                    Console.WriteLine("\nRecord not found");
+                                    Console.WriteLine("\nRecord Not Found");
                                 else
-                                { 
+                                {
                                     Console.WriteLine("\nRecord Not Found");
                                     Console.WriteLine("\nRoll Number: " + current.rollNumber);
                                     Console.WriteLine("\nName: " + current.name);
@@ -182,11 +172,11 @@ namespace single_lingked_list
                             }
                     }
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     Console.WriteLine("\nCheck for the value entered");
                 }
             }
-        }
-    }
+        }
+    }
 }
